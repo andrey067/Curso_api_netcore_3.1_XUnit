@@ -58,12 +58,12 @@ namespace Api.Application.Controllers
             {
                 var result = await _services.Post(user);
                 if (result != null)
-                    return Created(new Uri(Url.Link("GetWhiId", new { id = result.Id })), result);
+                    return Created(new Uri(Url.Link("GetWithId", new { id = result.Id })), result);
                 else return BadRequest();
             }
-            catch (ArgumentException ex)
+            catch (ArgumentException e)
             {
-                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+                return StatusCode((int)HttpStatusCode.InternalServerError, e.Message);
             }
         }
     }
