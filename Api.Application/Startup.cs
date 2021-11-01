@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace Api.Application
 {
@@ -29,6 +30,21 @@ namespace Api.Application
         {
             ConfigureService.ConfigureDependenciesServices(services);
             ConfigureRepository.ConfigureDependenciesRepository(services);
+            services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Version = "v1",
+                Title = "Api com AspNetCore 3.1",
+                Description = "Arquitetura DDD",
+                Contact = new OpenApiContact
+                {
+                    Name = "Audrey Ernesto de Lima",
+                    Email = "audrey.ernesto.lim@gmail.com"
+                },
+                License = new OpenApiLicense
+                {
+                    Name = "Audrey License"                    
+                }
+            }));
             services.AddControllers();
         }
 
@@ -39,7 +55,12 @@ namespace Api.Application
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Curso de Api com AspNetCore 3.1");
+                c.RoutePrefix = string.Empty;
+            });
             app.UseRouting();
 
             app.UseAuthorization();
