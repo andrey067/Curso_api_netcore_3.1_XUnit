@@ -26,7 +26,7 @@ namespace Api.Service.Services
             return await _repository.SelectAsync(id);
         }
 
-        public async Task<IEnumerable<UserEntity>> GetGetAll(Guid id)
+        public async Task<IEnumerable<UserEntity>> GetAll()
         {
             return await _repository.SelectAsyncAll();
         }
