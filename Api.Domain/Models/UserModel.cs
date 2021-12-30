@@ -22,5 +22,29 @@ namespace Domain.Models
             set { _name = value; }
         }
 
+
+        private string _email;
+
+        public string Email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
+
+        private DateTime _createAt;
+
+        public DateTime CreateAt
+        {
+            get { return _createAt; }
+            set { _createAt = value == null ? DateTime.Now : value; }
+        }
+
+        private DateTime _updateAt;
+
+        public DateTime Updateate
+        {
+            get { return _updateAt; }
+            set { _updateAt = value; }
+        }
     }
 }
