@@ -17,6 +17,5 @@ namespace Data.Implementations
         }
 
         public async Task<UserEntity> FindByLogin(string email) => await _userDbSet.FirstOrDefaultAsync(u => u.Email.Equals(email));
-
     }
 }
