@@ -40,7 +40,7 @@ namespace Api.Application
             {
                 cfg.AddProfile(new DtoToModelProfile());
                 cfg.AddProfile(new EntityToDtoProfile());
-                cfg.AddProfile(new EntityToDtoProfile());
+                cfg.AddProfile(new ModelToEntityProfile());
             });
 
             IMapper mapper = config.CreateMapper();
