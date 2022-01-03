@@ -33,7 +33,6 @@ namespace Service.Services
         {
             var baseUser = new UserEntity();
 
-
             if (user.Email != null && !string.IsNullOrWhiteSpace(user.Email))
             {
                 baseUser = await _userRepository.FindByLogin(user.Email);

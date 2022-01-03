@@ -1,13 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Api.Domain.Entities;
 using Api.Domain.Interfaces;
 using Api.Domain.Interfaces.Services;
 using AutoMapper;
 using Domain.Dtos.User;
-using Domain.Interfaces.Users;
 using Domain.Models;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Api.Service.Services
 {
@@ -30,7 +29,7 @@ namespace Api.Service.Services
         public async Task<UserDto> Get(Guid id)
         {
             var entity = await _repository.SelectAsync(id);
-            return _mapper.Map<UserDto>(entity);
+            return _mapper.Map<UserDto>(entity) ?? new UserDto();
         }
 
         public async Task<IEnumerable<UserDto>> GetAll()
@@ -39,7 +38,7 @@ namespace Api.Service.Services
             return _mapper.Map<IEnumerable<UserDto>>(listEntity);
         }
 
-        public async Task<UserDtoCreateResult> Post(UserDto user)
+        public async Task<UserDtoCreateResult> Post(UserDtoCreate user)
         {
             var model = _mapper.Map<UserModel>(user);
             var entity = _mapper.Map<UserEntity>(model);
@@ -47,7 +46,7 @@ namespace Api.Service.Services
             return _mapper.Map<UserDtoCreateResult>(result);
         }
 
-        public async Task<UserDtoUpdateResult> Put(UserDto user)
+        public async Task<UserDtoUpdateResult> Put(UserDtoUpdate user)
         {
             var model = _mapper.Map<UserModel>(user);
             var entity = _mapper.Map<UserEntity>(model);

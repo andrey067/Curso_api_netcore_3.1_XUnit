@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Domain.Interfaces.Users
+namespace Domain.Dtos.User
 {
     public class UserDtoUpdateResult
     {
