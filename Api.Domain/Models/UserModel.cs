@@ -41,7 +41,7 @@ namespace Domain.Models
 
         private DateTime _updateAt;
 
-        public DateTime Updateate
+        public DateTime UpdateAt
         {
             get { return _updateAt; }
             set { _updateAt = value; }

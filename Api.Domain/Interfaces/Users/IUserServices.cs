@@ -1,5 +1,4 @@
 using Domain.Dtos.User;
-using Domain.Interfaces.Users;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
