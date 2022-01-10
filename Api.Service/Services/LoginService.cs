@@ -50,9 +50,9 @@ namespace Service.Services
                     {
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), //jti é o Id do token
                         new Claim(JwtRegisteredClaimNames.UniqueName, baseUser.Email),
-                    });
+                    });                    
                     DateTime createDate = DateTime.Now;
-                    DateTime expirationDate = createDate + TimeSpan.FromSeconds(_tokenConfigurations.Seconds);
+                    DateTime expirationDate = createDate + TimeSpan.FromSeconds(Convert.ToInt32(Environment.GetEnvironmentVariable("Seconds")));
 
                     var handler = new JwtSecurityTokenHandler();
                     string token = CreateToken(identity, createDate, expirationDate, handler);
