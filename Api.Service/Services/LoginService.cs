@@ -18,13 +18,11 @@ namespace Service.Services
         private IUserRepository _userRepository;
 
         public SigningConfigurations _signingConfigurations;
-        public TokenConfigurations _tokenConfigurations;
         public IConfiguration _configuration;
 
-        public LoginService(IUserRepository userRepository, SigningConfigurations signingConfigurations, TokenConfigurations tokenConfigurations, IConfiguration configuration)
+        public LoginService(IUserRepository userRepository, SigningConfigurations signingConfigurations, IConfiguration configuration)
         {
             _signingConfigurations = signingConfigurations;
-            _tokenConfigurations = tokenConfigurations;
             _configuration = configuration;
             _userRepository = userRepository;
         }
@@ -50,7 +48,7 @@ namespace Service.Services
                     {
                         new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), //jti é o Id do token
                         new Claim(JwtRegisteredClaimNames.UniqueName, baseUser.Email),
-                    });                    
+                    });
                     DateTime createDate = DateTime.Now;
                     DateTime expirationDate = createDate + TimeSpan.FromSeconds(Convert.ToInt32(Environment.GetEnvironmentVariable("Seconds")));
 
@@ -68,8 +66,8 @@ namespace Service.Services
         {
             var securityToken = handler.CreateToken(new SecurityTokenDescriptor
             {
-                Issuer = _tokenConfigurations.Issuer,
-                Audience = _tokenConfigurations.Audience,
+                Issuer = Environment.GetEnvironmentVariable("Issuer"),
+                Audience = Environment.GetEnvironmentVariable("Audience"),
                 SigningCredentials = _signingConfigurations.SigningCredentials,
                 Subject = identity,
                 NotBefore = createDate,

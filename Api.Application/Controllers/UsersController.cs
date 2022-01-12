@@ -46,7 +46,11 @@ namespace Api.Application.Controllers
             if (!ModelState.IsValid) return BadRequest(ModelState);
             try
             {
-                return Ok(await _services.Get(id));
+                var result = await _services.Get(id);
+                if (result == null)
+                    return NotFound();
+                else
+                    return Ok(result);
             }
             catch (ArgumentException ex)
             {
