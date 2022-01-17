@@ -1,10 +1,10 @@
-﻿using Api.Domain.Entities;
-using Domain.Dtos.User;
-using Domain.Models;
+﻿using Xunit;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using Xunit;
+using Domain.Models;
+using Domain.Dtos.User;
+using Api.Domain.Entities;
+using System.Collections.Generic;
 
 namespace Api.Service.Test.AutoMapper
 {

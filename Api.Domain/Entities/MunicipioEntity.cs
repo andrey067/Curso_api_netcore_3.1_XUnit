@@ -1,5 +1,6 @@
-﻿using Api.Domain.Entities;
-using System;
+﻿using System;
+using Api.Domain.Entities;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entities
@@ -13,5 +14,6 @@ namespace Domain.Entities
         [Required]
         public Guid UfId { get; set; }
         public UfEntity Uf { get; set; }
+        public IEnumerable<CepEntity> Ceps { get; set; }
     }
 }

@@ -16,8 +16,12 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "MIGRATION": "APLICAR",
-        "DB_CONNECTION": "Data Source=ADMDTI09;Initial Catalog=dbapi;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
-        "DATABASE": "SQLSERVER"
+        //"DB_CONNECTION": "Data Source=ADMDTI09;Initial Catalog=dbapi;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
+        "DB_CONNECTION": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CursoApi;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
+        "DATABASE": "SQLSERVER",
+        "Audience": "ExemploAudience",
+        "Issuer": "ExemploIssue",
+        "Seconds": "28800"
       }
     },
     "Api.Application": {
@@ -25,7 +29,8 @@
       "launchBrowser": true,
       "launchUrl": "weatherforecast",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "SECONDS": "28800"
       },
       "applicationUrl": "http://localhost:5000"
     },
@@ -33,7 +38,8 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Testing"
+        "ASPNETCORE_ENVIRONMENT": "Testing",
+        "SECONDS": "28800"
       }
     }
   }

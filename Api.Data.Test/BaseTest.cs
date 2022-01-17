@@ -22,7 +22,7 @@ namespace Api.Data.Test
         {
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddDbContext<MyContext>(o =>
-                o.UseSqlServer($"Persist Security Info=False;Integrated Security=true;Initial Catalog={dataBaseName};Server =ADMDTI09")
+                o.UseSqlServer($"Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog={dataBaseName};Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
                 , ServiceLifetime.Transient);
 
             ServiceProvider = serviceCollection.BuildServiceProvider();

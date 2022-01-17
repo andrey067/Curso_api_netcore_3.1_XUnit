@@ -1,5 +1,5 @@
-﻿using Api.Domain.Entities;
-using System;
+﻿using System;
+using Api.Domain.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entities
@@ -14,10 +14,12 @@ namespace Domain.Entities
         [MaxLength(60)]
         public string Logradouro { get; set; }
 
+        [MaxLength(10)]
         public string Numero { get; set; }
 
+        [Required]
         public Guid MunicipioId { get; set; }
 
-        public IEquatable<CepEntity> Ceps { get; set; }
+        public MunicipioEntity Municipio { get; set; }
     }
 }

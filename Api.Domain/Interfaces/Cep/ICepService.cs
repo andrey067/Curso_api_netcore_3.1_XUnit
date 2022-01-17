@@ -10,7 +10,7 @@ namespace Domain.Interfaces.Cep
     {
         Task<CepDto> Get(Guid id);
         Task<CepDto> Get(string cep);
-        Task<CepDtoCreateResult> Post(CepDtoUpdate cep);
+        Task<CepDtoCreateResult> Post(CepDtoCreate cep);
         Task<CepDtoUpdateResult> Put(CepDtoUpdate cep);
         Task<bool> Delete(Guid Id);
 
