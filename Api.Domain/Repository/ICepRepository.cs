@@ -1,11 +1,10 @@
 ﻿using Domain.Entities;
-using Api.Domain.Interfaces;
 using System.Threading.Tasks;
 
 namespace Domain.Repository
 {
-    public interface ICepRepository : IRepository<CepEntity>
+    public interface ICepRepository
     {
-        Task<CepEntity> SelectAsync(string cep);
+        Task<Cep> SelectByCepAsync(string cep);
     }
 }

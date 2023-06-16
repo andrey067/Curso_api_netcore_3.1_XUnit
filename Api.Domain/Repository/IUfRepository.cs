@@ -1,9 +1,10 @@
-﻿using Api.Domain.Interfaces;
-using Domain.Entities;
+﻿using Domain.Entities;
+using System.Threading.Tasks;
 
 namespace Domain.Repository
 {
-    public interface IUfRepository : IRepository<UfEntity>
+    public interface IUfRepository
     {
+        Task<Uf> FindBySigla(string sigla);
     }
 }

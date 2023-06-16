@@ -1,13 +1,11 @@
-﻿using Api.Domain.Interfaces;
-using Domain.Entities;
-using System;
+﻿using Domain.Entities;
 using System.Threading.Tasks;
 
 namespace Domain.Repository
 {
-    public interface IMunicipioRepository : IRepository<MunicipioEntity>
+    public interface IMunicipioRepository
     {
-        Task<MunicipioEntity> GetCompleteById(Guid id);
-        Task<MunicipioEntity> GetCompleteByIBGE(int codIBGE);
+        Task<Municipio> GetCompleteById(long id);
+        Task<Municipio> GetCompleteByIBGE(int codIBGE);
     }
 }

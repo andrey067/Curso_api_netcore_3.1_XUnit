@@ -12,9 +12,8 @@ namespace Domain.Security
         public SigningConfigurations()
         {
             using (var provider = new RSACryptoServiceProvider(2048))
-            {
                 Key = new RsaSecurityKey(provider.ExportParameters(true));
-            }
+
 
             SigningCredentials = new SigningCredentials(Key, SecurityAlgorithms.RsaSha256Signature);
         }
