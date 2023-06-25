@@ -11,7 +11,13 @@ namespace Api.Domain.Entities
         public string Name { get; private set; }
         public string Email { get; private set; }
 
-        public void AlterarNome(string nome) => Name = nome;
-        public void AlternateEmail(string email) => Email = email;
+        private void AlterarNome(string nome) => Name = nome;
+        private void AlternateEmail(string email) => Email = email;
+
+        public void AlterarUsuario(string nome, string email)
+        {
+            AlterarNome(nome);
+            AlternateEmail(email);
+        }
     }
 }

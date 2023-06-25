@@ -42,7 +42,7 @@ namespace Api.Data.Test
             var entity = new User(Faker.Internet.Email(), Faker.Name.FullName());
             var createdRecord = await _userRepository.InsertAsync(entity);
 
-            entity.AlterarNome(Faker.Name.First());
+            entity.AlterarUsuario(Faker.Name.First(), Faker.Internet.FreeEmail());
             var updatedRecord = await _userRepository.UpdateAsync(entity);
 
             Assert.NotNull(updatedRecord);

@@ -49,12 +49,11 @@ namespace Application.Services
 
         public async Task<Result<UserDto>> Put(UpdateUserDto dto)
         {
-            var user = await _repositoryBase.SelectAsync(dto.id);
+            var user = await _repositoryBase.SelectAsync(dto.Id);
             if (user == null)
                 return Result<UserDto>.Failure(new Error(typeof(User).Name, "Não encontrado"));
 
-            user.AlterarNome(dto.nome);
-            user.AlternateEmail(dto.email);
+            user.AlterarUsuario(dto.Name, dto.Email);
             var result = await _repositoryBase.UpdateAsync(user);
             var updatedUserDto = result.Adapt<UserDto>();
             return Result<UserDto>.Success(updatedUserDto.Adapt<UserDto>());

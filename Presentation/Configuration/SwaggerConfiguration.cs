@@ -13,7 +13,7 @@ namespace Presentation.Configuration
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Curso de Api com AspNetCore 3.1");
-                    c.RoutePrefix = string.Empty;
+                    c.RoutePrefix = "swagger";
                 });
             }
 

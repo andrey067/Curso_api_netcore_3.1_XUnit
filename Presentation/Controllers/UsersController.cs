@@ -23,18 +23,23 @@ namespace Api.Application.Controllers
                 .WithName("CreateUser")
                 .WithOpenApi();
 
+            routes.MapPut("/", UpdateUser)
+                .WithName("UpdateUser")
+                .WithOpenApi();
+
+            routes.MapDelete("/", DeleteUser)
+                .WithName("DeleteUser")
+                .WithOpenApi();
+
             return routes;
         }
 
         public static async Task<IResult> GetAllUsers([FromServices] IUserServices services)
         {
             var users = await services.GetAll();
+            if (users.IsSuccess && users.Errors.Count() > 0) return Results.NotFound(users);
 
-            if (users.IsSuccess && users.Errors.Count() > 0)
-                return Results.NotFound(users);
-
-            if (!users.IsSuccess && users.Errors.Count() > 0)
-                return Results.BadRequest(users);
+            if (!users.IsSuccess && users.Errors.Count() > 0) return Results.BadRequest(users);
 
             return Results.Ok(users);
         }
@@ -56,6 +61,26 @@ namespace Api.Application.Controllers
             else
 
                 return Results.BadRequest(result);
+        }
+
+        public static async Task<IResult> DeleteUser([FromServices] IUserServices services, long Id)
+        {
+            var result = await services.Delete(Id);
+            if (result.IsSuccess)
+                return Results.NoContent();
+            else
+
+                return Results.BadRequest(result);
+        }
+
+        public static async Task<IResult> UpdateUser([FromServices] IUserServices services, UpdateUserDto updateUserDto)
+        {
+            var user = await services.Put(updateUserDto);
+            if (user.IsSuccess)
+                return Results.Ok(user);
+            else
+
+                return Results.BadRequest(user);
         }
     }
 }

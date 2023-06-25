@@ -32,10 +32,10 @@ namespace Infrastructure
             }
 
 
-            if (Environment.GetEnvironmentVariable("DATABASE").ToLower() == "SQLSERVER".ToLower())
+            if (Environment.GetEnvironmentVariable("DATABASE").ToLower() == "POSTGRES".ToLower())
             {
                 services.AddDbContext<EnderecosContext>(
-            options => options.UseSqlServer(Environment.GetEnvironmentVariable("DB_CONNECTION")));
+            options => options.UseNpgsql(Environment.GetEnvironmentVariable("DB_CONNECTION")));
             }
             else
             {

@@ -9,7 +9,6 @@ namespace Infrastructure.Configurations
         {
             services.AddSwaggerGen(c =>
             {
-                //c.ResolveConflictingActions(apiDescriptions => apiDescriptions.First());
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",

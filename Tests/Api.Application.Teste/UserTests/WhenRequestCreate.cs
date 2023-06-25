@@ -1,4 +1,5 @@
 ﻿using Api.Application.Controllers;
+using Api.Domain.Entities;
 using Application.Dtos.Users;
 using Application.Interfaces;
 using Domain.Dtos.User;
@@ -28,7 +29,6 @@ namespace Api.Tests.UserTest
                 CreateAt = DateTime.Now
             }));
 
-
             IResult result = await UsersController.CreateUser(mockUserServices.Object, createUserDto);
 
             Assert.IsType<CreatedAtRoute<Result<UserDto>>>(result);
@@ -46,6 +46,8 @@ namespace Api.Tests.UserTest
         public async Task Post_ReturnBadRequest()
         {
             // Arrange
+            var error = new Error(typeof(User).Name, error: "Não encontrado");
+
             var createUserDto = new CreateUserDto(Faker.Name.FullName(), Faker.Internet.Email());
             var mockUserServices = new Mock<IUserServices>();
             mockUserServices.Setup(services => services.Post(createUserDto)).ReturnsAsync(Result<UserDto>.Failure(new Error("User", "Erro ao persistir usuario")));

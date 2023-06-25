@@ -45,45 +45,22 @@ namespace Infrastructure.Repositories
         }
 
         public async Task<T?> SelectAsync(long id)
-        {
-            try
-            {
-                return await _dataSet.SingleOrDefaultAsync(p => p.Id.Equals(id));
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+            => await _dataSet.SingleOrDefaultAsync(p => p.Id.Equals(id));
 
         public async Task<IEnumerable<T>?> SelectAsyncAll()
-        {
-            try
-            {
-                return await _dataSet.ToListAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+         => await _dataSet.ToListAsync();
 
-        public async Task<T> UpdateAsync(T item)
+        public async Task<T?> UpdateAsync(T item)
         {
-            try
-            {
-                var itemOld = await _dataSet.AsNoTracking().SingleOrDefaultAsync(p => p.Id.Equals(item.Id));
-                if (itemOld == null)
-                    return null;
-                item.UpdateUpdateAt();
+            var itemOld = await _dataSet.AsNoTracking().SingleOrDefaultAsync(p => p.Id.Equals(item.Id));
+            if (itemOld == null)
+                return null;
 
-                _context.Entry(itemOld).CurrentValues.SetValues(item);
-                await _context.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            item.UpdateUpdateAt();
+
+            _context.Entry(itemOld).CurrentValues.SetValues(item);
+            await _context.SaveChangesAsync();
+
             return item;
         }
 

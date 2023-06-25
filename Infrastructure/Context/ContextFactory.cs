@@ -7,29 +7,10 @@ namespace Infrastructure.Context
     {
         public EnderecosContext CreateDbContext(string[] args)
         {
-            //if (Environment.GetEnvironmentVariable("DATABASE").ToLower() == "SQLSERVER".ToLower())
-            //{
-            //    serviceCollection.AddDbContext<MyContext>(
-            //options => options
-            //.UseSqlServer(Environment.GetEnvironmentVariable("DB_CONNECTION")));
-            //}
-            //else
-            //{
-            //    //ConectionString MySQL
-            //    serviceCollection.AddDbContext<MyContext>(
-            //    options => options.UseMySql(Environment.GetEnvironmentVariable("DB_CONNECTION")));
-            //}
-
-
-            //Usado para fazer as migrações
-            //var connectionString = "Server=localhost;Port=3306;Database=dbApi;Uid=root;Pwd=mudar@123";            
-            //var connectionString = "Data Source=ADMDTI09;Initial Catalog=dbapi;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=CursoApi;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            var connectionString = "Host=192.168.237.70; Database=CursoApi; Username=postgres; Password=admin";
             var optionsBuilder = new DbContextOptionsBuilder<EnderecosContext>();
-            //optionsBuilder.UseMySql(connectionString);
-            optionsBuilder.UseSqlServer(connectionString);
+            optionsBuilder.UseNpgsql(connectionString);
             return new EnderecosContext(optionsBuilder.Options);
         }
     }
-
 }

@@ -19,7 +19,7 @@ namespace Api.Application.Controllers
 
             routes.MapPut("/", Put);
 
-            routes.MapDelete("/{id}", Put);
+            routes.MapDelete("/{id}", Put);            
 
             return routes;
         }

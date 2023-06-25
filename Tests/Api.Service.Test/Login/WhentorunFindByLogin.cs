@@ -1,9 +1,4 @@
-﻿using Moq;
-using System;
-using System.Threading.Tasks;
-using Xunit;
-
-namespace Api.Service.Test.Login
+﻿namespace Api.Service.Test.Login
 {
     public class WhentorunFindByLogin
     {

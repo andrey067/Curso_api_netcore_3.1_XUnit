@@ -1,7 +1,7 @@
 ﻿namespace Api.Service.Test.AutoMapper
 {
-    public class MunicipioMapper : BaseTesteService
-    {
+    //public class MunicipioMapper : BaseTesteService
+    //{
         //[Fact(DisplayName = "É Possível Mapear os Modelo de Municipio")]
         //public void E_Possivel_Mapear_os_Modelos_Municipio()
         //{
@@ -102,5 +102,5 @@
         //    Assert.Equal(userDtoUpdate.UfId, userModel.UfId);
 
         //}
-    }
+   // }
 }
