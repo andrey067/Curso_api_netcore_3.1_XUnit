@@ -16,7 +16,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "MIGRATION": "APLICAR",
-        "DB_CONNECTION": "Host=ernestomatos.myasustor.com; Database=CursoApi; Username=postgres; Password=admin",
+        "DB_CONNECTION": "",
         "DATABASE": "POSTGRES",
         "Audience": "ExemploAudience",
         "Issuer": "ExemploIssue",
@@ -32,7 +32,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "MIGRATION": "APLICAR",
-        "DB_CONNECTION": "Host=192.168.237.70; Database=CursoApi; Username=postgres; Password=admin",
+        "DB_CONNECTION": "",
         "DATABASE": "POSTGRES",
         "Audience": "ExemploAudience",
         "Issuer": "ExemploIssue",
@@ -48,7 +48,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
         "MIGRATION": "APLICAR",
-        "DB_CONNECTION": "Host=192.168.237.70; Database=CursoApi; Username=postgres; Password=admin",
+        "DB_CONNECTION": "",
         "DATABASE": "POSTGRES",
         "Audience": "ExemploAudience",
         "Issuer": "ExemploIssue",
@@ -56,45 +56,4 @@
       }
     }
   }
-
-
-
-
-  //"profiles": {
-  //  //"http": {
-  //  //  "commandName": "Project",
-  //  //  "dotnetRunMessages": true,
-  //  //  "launchBrowser": true,
-  //  //  "launchUrl": "swagger",
-  //  //  "applicationUrl": "http://localhost:5126",
-  //  //  "environmentVariables": {
-  //  //    "ASPNETCORE_ENVIRONMENT": "Development"
-  //  //  }
-  //  //},
-  //  //"https": {
-  //  //  "commandName": "Project",
-  //  //  "dotnetRunMessages": true,
-  //  //  "launchBrowser": true,
-  //  //  "launchUrl": "swagger",
-  //  //  "applicationUrl": "https://localhost:7216;http://localhost:5126",
-  //  //  "environmentVariables": {
-  //  //    "ASPNETCORE_ENVIRONMENT": "Development"
-  //  //  }
-  //  //},
-  //  "IIS Express": {
-  //    "commandName": "IISExpress",
-  //    "launchBrowser": true,
-  //    "launchUrl": "index.html",
-  //    "environmentVariables": {
-  //      "ASPNETCORE_ENVIRONMENT": "Development",
-  //      "MIGRATION": "APLICAR",
-  //      "DB_CONNECTION": "Host=ernestomatos.myasustor.com; Database=CursoApi; Username=postgres; Password=admin",
-  //      "DATABASE": "POSTGRES",
-  //      "Audience": "ExemploAudience",
-  //      "Issuer": "ExemploIssue",
-  //      "Seconds": "28800"
-  //    }
-  //  }
-
-
 }
